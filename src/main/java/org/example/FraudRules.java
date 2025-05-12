@@ -1,10 +1,19 @@
 package org.example;
 
+import java.util.List;
+
 class FraudRule1 implements FraudRule {
+    List<String> cities = List.of("Melbourne","Sydney","Minsk","Vitebsk");
+
     @Override
         public boolean Rule(Transaction transaction) {
-            return transaction.getTrader().getCity().equals("Sydney");
+        for (String city : cities) {
+            if(transaction.getTrader().getCity().equals(city)){
+                return true;
+            }
         }
+        return false;
+    }
     @Override
         public String getRuleName() {
         return "FraudRule1";

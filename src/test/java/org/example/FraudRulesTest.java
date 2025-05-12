@@ -19,6 +19,14 @@ class FraudRule1Test {
     {
         Trader trader = new Trader("Alisa","Minsk","Belarus");
         Transaction transaction = new Transaction(trader,100);
+        assertTrue(fraudRule1.Rule(transaction));
+
+    }
+    @Test
+    public void Rule1Test3()
+    {
+        Trader trader = new Trader("Alisa","Paris","Belarus");
+        Transaction transaction = new Transaction(trader,100);
         assertFalse(fraudRule1.Rule(transaction));
 
     }
